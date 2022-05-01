@@ -1,5 +1,7 @@
 # file-upload
 
+基于 [Hongbusi/vitemplate](https://github.com/Hongbusi/vitemplate) 搭建。
+
 ## client
 
 ``` bash
@@ -7,7 +9,7 @@ cd client
 
 pnpm install
 
-pnpm run dev
+pnpm dev
 ```
 
 ## server
@@ -17,5 +19,5 @@ cd server
 
 pnpm
 
-pnpm run dev
+pnpm dev
 ```
