@@ -1,6 +1,6 @@
 # file-upload
 
-基于 [Hongbusi/vitemplate](https://github.com/Hongbusi/vitemplate) 搭建。
+基于 [vitemplate](https://github.com/Hongbusi/vitemplate) 搭建。
 
 ## client
 
