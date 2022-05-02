@@ -3,7 +3,7 @@
     <router-view />
     <Footer />
     <div class="mt-5 mx-auto text-center opacity-25 text-sm">
-      Copyright © 2022-present Hongbusi
+      Copyright © 2022-present developer-plus.
     </div>
   </main>
 </template>
