@@ -42,12 +42,9 @@ const state: State = reactive({
   fileList: []
 })
 
-interface Event<T = EventTarget> {
-  target: T
-}
-
-const handleFileChange = (event: Event<HTMLInputElement>) => {
-  const file = event.target.files![0]
+const handleFileChange = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const file = target.files![0]
   if (!file) { return }
   state.file = file
 }
