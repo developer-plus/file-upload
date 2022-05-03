@@ -28,28 +28,37 @@
 </template>
 
 <script setup lang="ts">
-interface State {
-  file: File | null
-  hash: string | null
-  chunks: any[]
-  fileList: any[]
-}
+import { ext } from '~/utils'
+import { calculateHashSample } from '~/utils/calculateHash'
+import { check } from '~/api'
 
-const state: State = reactive({
-  file: null,
-  hash: null,
-  chunks: [],
-  fileList: []
-})
+const file = ref<File | null>(null)
 
+// 选择文件
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement
-  const file = target.files![0]
-  if (!file) { return }
-  state.file = file
+  const targetFile = target.files![0]
+  if (!targetFile) { return }
+  file.value = targetFile
 }
 
-const handleUpload = () => {
-  console.log('upader', state.file)
+const handleUpload = async() => {
+  if (!file.value) {
+    // todo：弹窗提示，请选择文件
+    return
+  }
+
+  // 文件判重
+  // 方案 1：计算 hash 文件指纹标识
+  // 方案 2：web-worker 防止卡顿主线程
+  // 方案 3：抽样哈希，牺牲一定的准确率换来效率，hash 一样的不一定是同一个文件，但是不一样的一定不是
+
+  // 这里采用方案 3
+  const hash = await calculateHashSample(file.value)
+
+  const { uploaded, uploadedList } = await check({
+    ext: ext(file.value.name),
+    hash
+  })
 }
 </script>
