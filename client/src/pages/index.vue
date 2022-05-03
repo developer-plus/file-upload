@@ -28,28 +28,17 @@
 </template>
 
 <script setup lang="ts">
-interface State {
-  file: File | null
-  hash: string | null
-  chunks: any[]
-  fileList: any[]
-}
+const file = ref<File | null>(null)
 
-const state: State = reactive({
-  file: null,
-  hash: null,
-  chunks: [],
-  fileList: []
-})
-
+// 选择文件
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement
-  const file = target.files![0]
-  if (!file) { return }
-  state.file = file
+  const targetFile = target.files![0]
+  if (!targetFile) { return }
+  file.value = targetFile
 }
 
 const handleUpload = () => {
-  console.log('upader', state.file)
+  console.log('upader', file.value)
 }
 </script>

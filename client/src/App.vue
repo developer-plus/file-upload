@@ -4,9 +4,9 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Vitemplate',
+  title: 'file-upload',
   meta: [
-    { name: 'description', content: 'Vitemplate.' }
+    { name: 'description', content: 'file-upload' }
   ]
 })
 </script>
