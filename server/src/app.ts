@@ -1,7 +1,7 @@
 import Koa from 'koa'
 import serve from 'koa-static'
-import router from './router'
-import defaultConfig from './config'
+import router from './routers'
+import defaultConfig from './configs'
 
 const { port, staticDir } = defaultConfig
 
