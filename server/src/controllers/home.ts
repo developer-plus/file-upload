@@ -8,7 +8,7 @@ import { CONTROLLER, GET } from '../decorator'
 @CONTROLLER()
 class HomeController {
   async getUploadList(dirPath: string) {
-    // 过滤诡异文件的隐藏文件，比如 .DS_sotre
+    // 过滤诡异文件的隐藏文件，比如 .DS_Store
     return fse.existsSync(dirPath) ? (await fse.readdir(dirPath)).filter(name => name[0] !== '.') : []
   }
 
