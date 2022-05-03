@@ -1,6 +1,4 @@
 import path from 'path'
 
-export default {
-  port: 3000,
-  staticDir: path.resolve(__dirname, '/public')
-}
+export const port = 3000
+export const staticDir = path.resolve(__dirname, '/public')
