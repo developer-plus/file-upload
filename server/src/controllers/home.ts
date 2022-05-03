@@ -30,6 +30,11 @@ class HomeController {
       uploadedList
     }
   }
+
+  @POST('/upload')
+  async upload(ctx: Context) {
+    console.log(ctx.request)
+  }
 }
 
 export {
