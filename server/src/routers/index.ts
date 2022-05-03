@@ -1,8 +1,6 @@
-import KoaRouter from 'koa-router'
-import HomeController from '../controllers/home'
+import '../controllers/home'
+import { router } from '../decorator'
 
-const router = new KoaRouter()
-
-router.post('/check', HomeController.check)
-
-export default router
+export {
+  router
+}
