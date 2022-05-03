@@ -1,11 +1,13 @@
 import Koa from 'koa'
+import serve from 'koa-static'
+import defaultConfig from './config'
+
+const { port, staticDir } = defaultConfig
 
 const app = new Koa()
 
-app.use(async(ctx) => {
-  ctx.body = 'Hello World'
-})
+app.use(serve(staticDir))
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000')
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}...`)
 })
