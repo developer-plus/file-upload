@@ -28,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import { calculateHashSample } from '~/utils'
+
 const file = ref<File | null>(null)
 
 // 选择文件
@@ -38,7 +40,19 @@ const handleFileChange = (event: Event) => {
   file.value = targetFile
 }
 
-const handleUpload = () => {
-  console.log('upader', file.value)
+const handleUpload = async() => {
+  if (!file.value) {
+    // todo：弹窗提示，请选择文件
+    return
+  }
+
+  // 文件判重
+  // 方案 1：计算 hash 文件指纹标识
+  // 方案 2：web-worker 防止卡顿主线程
+  // 方案 3：抽样哈希，牺牲一定的准确率换来效率，hash 一样的不一定是同一个文件，但是不一样的一定不是
+
+  // 这里采用方案 3
+  const hashSample = await calculateHashSample(file.value)
+  console.log(hashSample)
 }
 </script>

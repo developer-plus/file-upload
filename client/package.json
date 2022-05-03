@@ -11,6 +11,7 @@
     "@vueuse/core": "^8.3.1",
     "@vueuse/head": "^0.7.5",
     "nprogress": "^0.2.0",
+    "spark-md5": "^3.0.2",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"
   },
@@ -19,6 +20,7 @@
     "@iconify-json/carbon": "^1.1.2",
     "@types/node": "^17.0.23",
     "@types/nprogress": "^0.2.0",
+    "@types/spark-md5": "^3.0.2",
     "@unocss/reset": "^0.30.11",
     "@vitejs/plugin-vue": "^2.3.1",
     "critters": "^0.0.16",
