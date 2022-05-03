@@ -1,6 +1,6 @@
 # file-upload
 
-基于 [vitemplate](https://github.com/Hongbusi/vitemplate) 搭建。
+[Hongbusi/file-upload](https://github.com/Hongbusi/file-upload) 优化版本。
 
 ## 阅读指南
 
