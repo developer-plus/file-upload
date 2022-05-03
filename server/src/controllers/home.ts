@@ -20,6 +20,7 @@ class HomeController {
     const uploaded = false
     const uploadedList: any[] = []
     console.log('check~~~')
+    console.log(this)
     // if (fse.existsSync(filePath)) {
     //   uploaded = true
     // }
