@@ -2,7 +2,7 @@ import Koa from 'koa'
 import serve from 'koa-static'
 import bodyParser from 'koa-bodyparser'
 import cors from 'koa2-cors'
-import router from './routers'
+import { router } from './routers'
 import { port, staticDir } from './configs'
 
 const app = new Koa()
