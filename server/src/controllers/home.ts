@@ -14,14 +14,14 @@ class HomeController {
     const filePath = path.resolve(staticDir, `${hash}.${ext}`)
 
     let uploaded = false
-    const uploadedList: any[] = []
+    let uploadedList: any[] = []
 
     if (fse.existsSync(filePath)) {
       uploaded = true
     }
     else {
       // 文件没有完全上传完毕，但是可能存在的部分切片上传完毕了
-      this.getUploadList(path.resolve(staticDir, hash))
+      uploadedList = await this.getUploadList(path.resolve(staticDir, hash))
     }
     ctx.body = {
       uploaded,
