@@ -1,7 +1,20 @@
 const ext = (filename: string) => {
-  return filename.split('.').pop()
+  return filename.split('.').pop() || ''
+}
+
+const CHUNK_SIZE = 1 * 1024 * 1024
+const createFileChunk = (file: File, size = CHUNK_SIZE) => {
+  // 生成文件块 Blob.slice 语法
+  const chunks = []
+  let cur = 0
+  while (cur < file.size) {
+    chunks.push({ index: cur, file: file.slice(cur, cur + size) })
+    cur += size
+  }
+  return chunks
 }
 
 export {
-  ext
+  ext,
+  createFileChunk
 }

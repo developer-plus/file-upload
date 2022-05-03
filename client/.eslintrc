@@ -1,3 +1,7 @@
 {
-  "extends": "@hongbusi"
+  "extends": "@hongbusi",
+  "rules": {
+    "no-alert": "off",
+    "no-console": "off"
+  }
 }

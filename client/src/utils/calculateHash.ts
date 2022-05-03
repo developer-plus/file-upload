@@ -1,6 +1,6 @@
 import sparkMD5 from 'spark-md5'
 
-const calculateHashSample = (file: File) => {
+const calculateHashSample = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {
     const spark = new sparkMD5.ArrayBuffer()
     const reader = new FileReader()
