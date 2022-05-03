@@ -28,7 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import { calculateHashSample } from '~/utils'
+import { ext } from '~/utils'
+import { calculateHashSample } from '~/utils/calculateHash'
+import { check } from '~/api'
 
 const file = ref<File | null>(null)
 
@@ -52,7 +54,11 @@ const handleUpload = async() => {
   // 方案 3：抽样哈希，牺牲一定的准确率换来效率，hash 一样的不一定是同一个文件，但是不一样的一定不是
 
   // 这里采用方案 3
-  const hashSample = await calculateHashSample(file.value)
-  console.log(hashSample)
+  const hash = await calculateHashSample(file.value)
+
+  const { uploaded, uploadedList } = await check({
+    ext: ext(file.value.name),
+    hash
+  })
 }
 </script>

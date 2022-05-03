@@ -1,8 +1,11 @@
 import type { Context } from 'koa'
 
 class HomeController {
-  async test(ctx: Context) {
-    ctx.body = 'Hello World!'
+  async check(ctx: Context) {
+    ctx.body = {
+      uploaded: true,
+      uploadedList: []
+    }
   }
 }
 
