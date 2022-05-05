@@ -63,9 +63,9 @@ class HomeController extends Controller {
     const { ctx } = this;
 
     // 随机报个错
-    if (Math.random() < 0.5) {
-      return ctx.status = 500;
-    }
+    // if (Math.random() < 0.5) {
+    //   return ctx.status = 500;
+    // }
 
     const file = ctx.request.files[0];
     const { chunkname, ext, hash } = ctx.request.body;
