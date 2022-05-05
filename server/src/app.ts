@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import serve from 'koa-static'
+import koaBody from 'koa-body'
 import bodyParser from 'koa-bodyparser'
 import cors from 'koa2-cors'
 import { router } from './routers'
@@ -9,6 +10,7 @@ const app = new Koa()
 
 app.use(serve(staticDir))
 app.use(cors())
+app.use(koaBody({ multipart: true }))
 app.use(bodyParser())
 app.use(router.routes())
 
