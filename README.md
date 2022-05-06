@@ -6,8 +6,8 @@
 
 强烈推荐按照下面的顺序阅读学习。
 
-- 1. [选择文件](./client/src/pages/index.vue#handleFileChange)
-- [文件抽样哈希计算](./client/src/utils/index.ts#calculateHashSample)
+- 选择文件
+- 文件抽样哈希计算
 
 ## client
 
