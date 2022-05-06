@@ -6,8 +6,13 @@
           文件列表
         </h2>
         <div class="mt-4 min-h-70vh border border-gray-200">
-          <div class="mt-5 text-gray">
+          <div v-if="!fileList.length" class="mt-5 text-gray">
             暂无数据
+          </div>
+          <div v-else>
+            <div v-for="(file, index) in fileList" :key="index">
+              {{ file }}
+            </div>
           </div>
         </div>
       </div>
@@ -30,7 +35,11 @@
 <script setup lang="ts">
 import { ext, createFileChunk } from '~/utils'
 import { calculateHashSample } from '~/utils/calculateHash'
-import { check, upload } from '~/api'
+import { file, check, upload, merge } from '~/api'
+
+const CHUNK_SIZE = 1 * 1024 * 1024
+const targetFile = ref<File | null>(null)
+const fileList = ref([])
 
 interface Chunk {
   hash: string
@@ -42,7 +51,15 @@ interface Chunk {
 
 type Chunks = Chunk[]
 
-const targetFile = ref<File | null>(null)
+// 获取文件列表
+const fetchFileList = async() => {
+  const { data } = await file()
+  fileList.value = data
+}
+
+onMounted(() => {
+  fetchFileList()
+})
 
 // 选择文件
 const handleFileChange = (event: Event) => {
@@ -113,8 +130,16 @@ const sendRequest = (chunks: any[], limit = 4) => {
   })
 }
 
+const mergeRequest = async(filename: string, hash: string) => {
+  await merge({
+    ext: ext(filename),
+    size: CHUNK_SIZE,
+    hash
+  })
+}
+
 // 上传切片
-const uploadChunks = async(chunks: Chunks, uploadedList: string[] = []) => {
+const uploadChunks = async(chunks: Chunks, uploadedList: string[] = [], fileHash) => {
   const file = unref(targetFile.value)
 
   const list = chunks
@@ -130,6 +155,11 @@ const uploadChunks = async(chunks: Chunks, uploadedList: string[] = []) => {
 
   try {
     await sendRequest([...list], 4)
+    if (uploadedList.length + list.length === chunks.length) {
+      await mergeRequest(file.name, fileHash)
+      alert('上传成功！')
+      fetchFileList()
+    }
   }
   catch (error) {
     // todo：优化 alert
@@ -180,6 +210,6 @@ const handleUpload = async() => {
     }
   })
 
-  await uploadChunks(newChunks, uploadedList)
+  await uploadChunks(newChunks, uploadedList, hash)
 }
 </script>
