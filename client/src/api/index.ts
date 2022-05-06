@@ -5,7 +5,7 @@ enum API {
   UPLOAD = '/upload'
 }
 
-export function file() {
+export function getFileList() {
   return service({
     url: '/file',
     method: 'get'

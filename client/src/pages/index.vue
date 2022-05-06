@@ -34,38 +34,30 @@
 
 <script setup lang="ts">
 import { ext, createFileChunk, calculateHashSample } from '~/utils'
-import { file, check, upload, merge } from '~/api'
+import { getFileList, check, upload, merge } from '~/api'
+import { CHUNK_SIZE } from '~/constants'
+import type { Chunks } from '~/types'
 
-const CHUNK_SIZE = 1 * 1024 * 1024
-const targetFile = ref<File | null>(null)
+// 获取已上传文件列表
 const fileList = ref([])
-
-interface Chunk {
-  hash: string
-  chunk: Blob
-  name: string
-  index: number
-  progress: number
-}
-
-type Chunks = Chunk[]
-
-// 获取文件列表
-const fetchFileList = async() => {
-  const { data } = await file()
+onMounted(async() => {
+  const { data } = await getFileList()
   fileList.value = data
-}
-
-onMounted(() => {
-  fetchFileList()
 })
+
+const file = ref<File | null>(null)
+// 文件扩展名
+let extension = ''
+const hash = ref('')
+const chunks = ref<Chunks>([])
 
 // 选择文件
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement
-  const file = target.files![0]
-  if (!file) { return }
-  targetFile.value = file
+  const targetFile = target.files![0]
+  if (!targetFile) return
+  file.value = targetFile
+  extension = ext(targetFile.name)
 }
 
 const sendRequest = (chunks: any[], limit = 4) => {
@@ -167,8 +159,7 @@ const uploadChunks = async(chunks: Chunks, uploadedList: string[] = [], fileHash
 }
 
 const handleUpload = async() => {
-  const file = unref(targetFile.value)
-  if (!file) {
+  if (!file.value) {
     // todo：优化 alert
     alert('请选择文件')
     return
@@ -180,13 +171,13 @@ const handleUpload = async() => {
   // 方案 3：抽样哈希，牺牲一定的准确率换来效率，hash 一样的不一定是同一个文件，但是不一样的一定不是
 
   // 这里采用方案 3
-  const hash = await calculateHashSample(file)
+  hash.value = await calculateHashSample(file.value)
 
   // todo：axios 封装，解决类型错误问题
   const { uploaded, uploadedList } = await check({
-    ext: ext(file.name),
-    hash
-  }) as any
+    ext: extension,
+    hash: hash.value
+  })
 
   if (uploaded) {
     // todo：优化 alert
@@ -194,7 +185,7 @@ const handleUpload = async() => {
     return
   }
 
-  const chunks = createFileChunk(file)
+  const chunks = createFileChunk(file.value)
 
   const newChunks: Chunks = chunks.map((chunk, index) => {
     // 每一个切片的名字
