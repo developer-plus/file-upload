@@ -33,8 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { ext, createFileChunk } from '~/utils'
-import { calculateHashSample } from '~/utils/calculateHash'
+import { ext, createFileChunk, calculateHashSample } from '~/utils'
 import { file, check, upload, merge } from '~/api'
 
 const CHUNK_SIZE = 1 * 1024 * 1024
