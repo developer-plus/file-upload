@@ -6,7 +6,7 @@ specifiers:
   '@types/node': 17.0.31
   '@types/nprogress': 0.2.0
   '@types/spark-md5': 3.0.2
-  '@unocss/reset': 0.30.13
+  '@unocss/reset': 0.33.1
   '@vitejs/plugin-vue': 2.3.2
   '@vueuse/core': 8.4.2
   '@vueuse/head': 0.7.6
@@ -42,7 +42,7 @@ devDependencies:
   '@types/node': 17.0.31
   '@types/nprogress': 0.2.0
   '@types/spark-md5': 3.0.2
-  '@unocss/reset': 0.30.13
+  '@unocss/reset': 0.33.1
   '@vitejs/plugin-vue': 2.3.2_vite@2.9.8+vue@3.2.33
   critters: 0.0.16
   eslint: 8.15.0
@@ -490,6 +490,10 @@ packages:
 
   /@unocss/reset/0.30.13:
     resolution: {integrity: sha512-zPchuJUdcE3XJXrLdInt1jk0FCTPY4q+B/MLBB5Io+a4g5Qg2oafXbh9ly4Jd7nggz8Dqrww7DP4INAUgl/egA==}
+    dev: true
+
+  /@unocss/reset/0.33.1:
+    resolution: {integrity: sha512-tcl6jsNmrWwCyyBo1rZ0rmL7RtFCpU7jv4/+FzPONHBk4EcyQCYnXlT9j5RaLEM0x4AzylgOFBdXLCkuu+u2cQ==}
     dev: true
 
   /@unocss/scope/0.30.13:
