@@ -18,7 +18,7 @@ specifiers:
   typescript: 4.6.4
   unocss: 0.30.13
   unplugin-auto-import: 0.6.9
-  unplugin-vue-components: 0.18.5
+  unplugin-vue-components: 0.19.3
   vite: 2.9.8
   vite-plugin-pages: 0.22.0
   vite-plugin-vue-layouts: 0.6.0
@@ -49,7 +49,7 @@ devDependencies:
   typescript: 4.6.4
   unocss: 0.30.13
   unplugin-auto-import: 0.6.9_zx3pfbbc5uei3k4c6zdezegtqm
-  unplugin-vue-components: 0.18.5_vite@2.9.8+vue@3.2.33
+  unplugin-vue-components: 0.19.3_vite@2.9.8+vue@3.2.33
   vite: 2.9.8
   vite-plugin-pages: 0.22.0_vite@2.9.8
   vite-plugin-vue-layouts: 0.6.0_husqietd6xoepun2tc4v73afle
@@ -3267,8 +3267,8 @@ packages:
       - webpack
     dev: true
 
-  /unplugin-vue-components/0.18.5_vite@2.9.8+vue@3.2.33:
-    resolution: {integrity: sha512-VPA6z/4pcKRDYtWu1H+FIpV0MADlFKG3q7YMVFzNFC3EhMVZ4WuBJ76490oKyauguNw1T1obLCuxNU9JzJ0oAQ==}
+  /unplugin-vue-components/0.19.3_vite@2.9.8+vue@3.2.33:
+    resolution: {integrity: sha512-z/kpYJnqrJuWglDNs7fy0YRHr41oLc07y2TkP3by6DqPb1GG9xGC9SFigeFwd4J7GVTqyFVsnjoeup7uK7I2dA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/parser': ^7.15.8
@@ -3289,7 +3289,7 @@ packages:
       magic-string: 0.26.1
       minimatch: 5.0.1
       resolve: 1.22.0
-      unplugin: 0.4.0_vite@2.9.8
+      unplugin: 0.6.3_vite@2.9.8
       vue: 3.2.33
     transitivePeerDependencies:
       - esbuild
@@ -3318,6 +3318,29 @@ packages:
     dependencies:
       chokidar: 3.5.3
       vite: 2.9.8
+      webpack-virtual-modules: 0.4.3
+    dev: true
+
+  /unplugin/0.6.3_vite@2.9.8:
+    resolution: {integrity: sha512-CoW88FQfCW/yabVc4bLrjikN9HC8dEvMU4O7B6K2jsYMPK0l6iAnd9dpJwqGcmXJKRCU9vwSsy653qg+RK0G6A==}
+    peerDependencies:
+      esbuild: '>=0.13'
+      rollup: ^2.50.0
+      vite: ^2.3.0
+      webpack: 4 || 5
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      rollup:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
+    dependencies:
+      chokidar: 3.5.3
+      vite: 2.9.8
+      webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.3
     dev: true
 
@@ -3508,6 +3531,11 @@ packages:
   /webidl-conversions/7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
+    dev: true
+
+  /webpack-sources/3.2.3:
+    resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
+    engines: {node: '>=10.13.0'}
     dev: true
 
   /webpack-virtual-modules/0.4.3:
