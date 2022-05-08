@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   egg: ^2.35.0
-  egg-bin: ^4.19.0
+  egg-bin: 4.19.0
   fs-extra: ^10.1.0
 
 dependencies:
@@ -77,6 +77,8 @@ packages:
     resolution: {integrity: sha512-n2Q6i+fnJqzOaq2VkdXxy2TCPCWQZHiCo0XqmrCvDWcZQKRyZzYi4Z0yxlBuN0w+r2ZHmre+Q087DSrw3pbJDQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.10
     dev: true
 
   /@babel/template/7.16.7:
@@ -133,6 +135,8 @@ packages:
       path-to-regexp: 1.8.0
       urijs: 1.19.11
       utility: 1.17.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@istanbuljs/schema/0.1.3:
@@ -619,6 +623,8 @@ packages:
       snapdragon-node: 2.1.1
       split-string: 3.1.0
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /braces/3.0.2:
@@ -657,6 +663,8 @@ packages:
       debug: 3.2.7
       long: 4.0.0
       utility: 1.17.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /bytes/2.2.0:
@@ -1106,18 +1114,34 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.0.0
 
-  /debug/3.2.6:
+  /debug/3.2.6_supports-color@6.0.0:
     resolution: {integrity: sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==}
     deprecated: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
-      ms: 2.1.1
+      ms: 2.1.3
+      supports-color: 6.0.0
     dev: true
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.1.3
 
@@ -1228,6 +1252,8 @@ packages:
     dependencies:
       address: 1.2.0
       debug: 2.6.9
+    transitivePeerDependencies:
+      - supports-color
 
   /dicer/0.2.5:
     resolution: {integrity: sha1-WZbAhrszIYyBLAkL3cCc0S+stw8=}
@@ -1354,6 +1380,8 @@ packages:
       scmp: 2.1.0
       should-send-same-site-none: 2.0.5
       utility: 1.17.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /egg-core/4.23.0:
@@ -1403,6 +1431,8 @@ packages:
     dependencies:
       debug: 3.2.7
       koa-locales: 1.12.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /egg-jsonp/2.0.0:
@@ -1425,6 +1455,8 @@ packages:
       iconv-lite: 0.4.24
       mkdirp: 0.5.6
       utility: 1.17.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /egg-logrotator/3.1.0:
@@ -1507,6 +1539,8 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       koa-session: 6.2.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /egg-static/2.2.0:
@@ -1519,6 +1553,8 @@ packages:
       koa-static-cache: 5.1.4
       mkdirp: 0.5.6
       ylru: 1.3.2
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /egg-ts-helper/1.30.3:
@@ -1539,6 +1575,8 @@ packages:
       tslib: 2.4.0
       typescript: 4.6.4
       yn: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /egg-utils/2.4.1:
@@ -1561,6 +1599,8 @@ packages:
       camelcase: 5.3.1
       sdk-base: 3.6.0
       wt: 1.2.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /egg/2.35.0:
@@ -1936,6 +1976,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /ext/1.6.0:
@@ -1978,6 +2020,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /fast-glob/2.2.7:
@@ -1990,6 +2034,8 @@ packages:
       is-glob: 4.0.3
       merge2: 1.4.1
       micromatch: 3.1.10
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /fast-glob/3.2.11:
@@ -2283,6 +2329,8 @@ packages:
       ignore: 4.0.6
       pify: 4.0.1
       slash: 2.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /graceful-fs/4.2.10:
@@ -3028,6 +3076,8 @@ packages:
       humanize-ms: 1.2.1
       ini: 1.3.8
       object-assign: 4.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /koa-onerror/4.2.0:
@@ -3060,6 +3110,8 @@ packages:
       debug: 3.2.7
       is-type-of: 1.2.1
       uuid: 3.4.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /koa-static-cache/5.1.4:
@@ -3071,6 +3123,8 @@ packages:
       fs-readdir-recursive: 1.1.0
       mime-types: 2.1.35
       mz: 2.7.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /koa/2.13.4:
@@ -3265,6 +3319,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /micromatch/4.0.5:
@@ -3339,7 +3395,7 @@ packages:
     dependencies:
       ansi-colors: 3.2.3
       browser-stdout: 1.3.1
-      debug: 3.2.6
+      debug: 3.2.6_supports-color@6.0.0
       diff: 3.5.0
       escape-string-regexp: 1.0.5
       find-up: 3.0.0
@@ -3445,6 +3501,8 @@ packages:
       regex-not: 1.0.2
       snapdragon: 0.8.2
       to-regex: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /ndir/0.1.5:
@@ -4101,6 +4159,8 @@ packages:
       get-ready: 2.0.1
       once: 1.4.0
       uuid: 3.4.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /regex-not/1.0.2:
@@ -4149,6 +4209,8 @@ packages:
     dependencies:
       crequire: 1.8.1
       debug: 2.6.9
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /resolve-url/0.2.1:
@@ -4271,6 +4333,8 @@ packages:
       debug: 3.2.7
       is-type-of: 1.2.1
       utility: 1.17.0
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /set-blocking/2.0.0:
@@ -4364,6 +4428,8 @@ packages:
       source-map: 0.5.7
       source-map-resolve: 0.5.3
       use: 3.1.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /snyk/1.919.0:
@@ -4677,6 +4743,8 @@ packages:
     dependencies:
       debug: 3.2.7
       through2: 2.0.5
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /test-exclude/5.2.3:
@@ -5081,6 +5149,8 @@ packages:
       debug: 2.6.9
       ndir: 0.1.5
       sdk-base: 2.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /xregexp/2.0.0:
@@ -5223,4 +5293,6 @@ packages:
       is-type-of: 1.2.1
       resolve-files: 1.0.2
       yargs: 7.1.2
+    transitivePeerDependencies:
+      - supports-color
     dev: true
